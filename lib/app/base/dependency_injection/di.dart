@@ -9,7 +9,7 @@ void init() {
     cubit.connectionStatus();
     return cubit;
   });*/
-  // sl.registerLazySingleton<InternetCubit>(() => InternetCubit());
+  sl.registerLazySingleton<InternetCubit>(() => InternetCubit());
   // sl.registerLazySingleton<DatabaseHelper>(() => DatabaseHelper.instance);
   // sl.registerFactory<SplashCubit>(() => SplashCubit());
 }

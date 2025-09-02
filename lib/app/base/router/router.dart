@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:nutsacktodo/presentation/splash/splash_view.dart';
 
 class Routes {
   static const String splashView = "/splashView";
@@ -10,11 +11,11 @@ class Routes {
   static const String cartView = "/cartView";
 
   static final List<GetPage> routes = [
-    // GetPage(
-    //   name: splashView,
-    //   page: () => SplashView(),
-    //   transition: Transition.fadeIn,
-    // ),
+    GetPage(
+      name: splashView,
+      page: () => SplashView(),
+      transition: Transition.fadeIn,
+    ),
     // GetPage(
     //   name: authView,
     //   page: () => AuthView(),

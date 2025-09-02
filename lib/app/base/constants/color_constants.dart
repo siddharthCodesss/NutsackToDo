@@ -14,6 +14,8 @@ class ColorConstants {
   static Color failureColor = Color(0xfff58282);
   static Color transparent = Colors.transparent;
   static Color danger = Colors.red;
+
+
   // static Color failureColorWithOpacity = failureColor.withValues(alpha: 0.5);
 
   static const primaryDark = Color(0xFF0A0B14);   // (nearly black background)

@@ -1,28 +1,15 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:nutsacktodo/app/base/constants/color_constants.dart';
-import 'package:nutsacktodo/app/base/theme/theme_manager.dart';
-import 'package:nutsacktodo/app/base/utils/dialog_utils/custom_dialog.dart';
 import 'package:nutsacktodo/app/base/widgets/new_widgets/gradient_button.dart';
 import 'package:sizer/sizer.dart';
 
-class AppAlertDialog extends StatefulWidget {
+class SuccessDialog extends StatelessWidget {
   final String? message;
-  final Function() onOKTap;
-
-  AppAlertDialog(this.message, this.onOKTap);
-
-  @override
-  _AppAlertDialogState createState() => _AppAlertDialogState(message, onOKTap);
-}
-
-class _AppAlertDialogState extends State<AppAlertDialog> {
-  final String? message;
-  final Function() onOKTap;
-
-  _AppAlertDialogState(this.message, this.onOKTap);
+  final String? buttonText;
+  final Function()? onTap;
+  const SuccessDialog({super.key, this.message, this.buttonText, this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -36,10 +23,10 @@ class _AppAlertDialogState extends State<AppAlertDialog> {
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(12),
               color: ColorConstants.dark,
-              border: Border.all(color: ColorConstants.neonPink, width: 1),
+              border: Border.all(color: ColorConstants.successGreen, width: 1),
               boxShadow: const [
                 BoxShadow(
-                    color: ColorConstants.neonPink,
+                    color: ColorConstants.successGreen,
                     offset: Offset(0, 0),
                     spreadRadius: 1,
                     blurRadius: 10)
@@ -67,7 +54,7 @@ class _AppAlertDialogState extends State<AppAlertDialog> {
                   ),
                 ]),
               ).marginOnly(bottom: 4.w),
-              GradientButton(buttonText: "Are ff", onTap: () {},)
+              GradientButton(buttonText: buttonText, onTap: onTap,)
             ],
           ),
         ),

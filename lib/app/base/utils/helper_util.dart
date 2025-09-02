@@ -115,51 +115,6 @@ class Helper {
     }
   }
 
-/*  static void showAlertDialogForDeletion(BuildContext c, String heading,
-      {String? body, String? textOKBtn}) {
-    String text = "Ok";
-
-    if (body == null) {
-      showDialog(
-        context: c,
-        builder: (BuildContext context) {
-          return AlertDialog(
-            title: Text(
-              heading,
-              style: c.textTheme.bodyText1,
-            ),
-            actions: <Widget>[
-              MaterialButton(
-                child: Text("Ok"),
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-              ),
-            ],
-          );
-        },
-      );
-    } else {
-      showDialog(
-        context: c,
-        builder: (BuildContext context) {
-          return AlertDialog(
-            title: Text(heading, style: c.textTheme.bodyText1),
-            content: Text(body, style: c.textTheme.bodyText1),
-            actions: <Widget>[
-              TextButton(
-                child: Text("Ok"),
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-              ),
-            ],
-          );
-        },
-      );
-    }
-  }*/
-
   static void showAlertDialogWithOnTap(
       BuildContext context, String? heading, Function() onTap,
       {String? textOKBtn = 'OK', String? textCancelBtn = 'Cancel'}) {
@@ -169,49 +124,6 @@ class Helper {
       builder: (BuildContext context) => AppAlertDialog(heading!, onTap),
     );
   }
-
-  /*static Future<ConfirmAction?> asyncConfirmDialog(
-      BuildContext context, String body, Function() onTap,
-      {String? heading = 'Alert',
-      String? textOKBtn = 'Ok',
-      String? textCancelBtn = 'CANCEL'}) async {
-    String? okText = textOKBtn;
-    String? headingText = heading;
-    String? cancelText = textCancelBtn;
-
-    return showDialog<ConfirmAction?>(
-      context: context,
-      barrierDismissible: false, // user must tap button for close dialog!
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text(headingText ?? '',
-              style: context.textTheme.bodyText1!
-                  .copyWith(fontSize: Dimensions.font_18sp)),
-          content: Text(body,
-              style: context.textTheme.bodyText1!
-                  .copyWith(fontSize: Dimensions.font_16sp)),
-          actions: <Widget>[
-            TextButton(
-              child: Text(cancelText ?? '',
-                  style: context.textTheme.bodyText1!.copyWith(
-                      fontSize: Dimensions.font_14sp,
-                      color: AppColors.primaryVariant)),
-              onPressed: () {
-                Navigator.of(context).pop(ConfirmAction.CANCEL);
-              },
-            ),
-            TextButton(
-              child: Text(okText ?? '',
-                  style: context.textTheme.bodyText1!.copyWith(
-                      fontSize: Dimensions.font_14sp,
-                      color: AppColors.primaryVariant)),
-              onPressed: onTap,
-            )
-          ],
-        );
-      },
-    );
-  }*/
 
   static void showSnackBar(String message) {
     Get.snackbar('', message,
@@ -227,24 +139,8 @@ class Helper {
       position: ToastPosition.bottom,
       backgroundColor: Colors.white.withOpacity(0.8),
       radius: 13.0,
-      // textStyle: GoogleFonts.rubik(
-      //     textStyle: TextStyle(fontSize: Dimensions.font_16sp)),
     );
   }
-
-  /*static void showSnackBarWithAction(
-    final GlobalKey<ScaffoldState> _scaffoldKey,
-    String message,
-    String actionLabel,
-    Function() onTap, {
-    int duration = 3,
-  }) {
-    _scaffoldKey.currentState!.showSnackBar(SnackBar(
-      content: Text(message),
-      duration: Duration(seconds: duration),
-      action: SnackBarAction(label: actionLabel, onPressed: onTap),
-    ));
-  }*/
 
   static String minutesToHHmm(int minutes) {
     var d = Duration(minutes: minutes);
@@ -413,32 +309,6 @@ class Helper {
     return age;
   }
 
-  /*static logout() async {
-    final prefs = await SharedPreferences.getInstance();
-    // SPUtil spUtil = await SharedPreferences.getInstance();
-    prefs.clear();
-    prefs.setBool('flag', true);
-    Get.offAllNamed(MRouter.loginRoute);
-  }*/
-
-
-  /*static Future<bool> checkPermission() async {
-    bool permissionStatus = false;
-    if (await Permission.storage.request().isGranted) {
-      return true;
-    }
-
-// You can request multiple permissions at once.
-    PermissionStatus statuses = await Permission.storage.request();
-
-    if (statuses.isGranted) {
-      permissionStatus = true;
-    } else {
-      permissionStatus = false;
-    }
-    return permissionStatus;
-  }*/
-
   static double? weightingDataComparison(dynamic oldWeight, dynamic newWeight) {
     try {
       var weightComparison = 0.0;
@@ -455,26 +325,6 @@ class Helper {
       return null;
     }
   }
-
-/*static logoutUser(BuildContext context, TranslateService translateService,
-      ApplicationCubit applicationCubit) {
-    Helper.showAlertDialogWithOnTap(
-      context,
-      translateService.getInstance().logoutDialogText,
-          () {
-        logout(applicationCubit);
-      },
-    );
-  }*/
-
-/*static logout(ApplicationCubit applicationCubit) async {
-    SPUtil spUtil = await SPUtil.getInstance();
-    spUtil.clear();
-    applicationCubit.updateClient(null);
-    applicationCubit.updateCoach(null);
-    applicationCubit.updateOrganization(null);
-    Get.offAllNamed(MRouter.sendOTPRoute);
-  }*/
 }
 
 extension FileExtention on FileSystemEntity {
